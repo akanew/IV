@@ -1,31 +1,30 @@
 var inDivs = new Array();
 inDivs=getDivsListWithAlikeClassName("col-xs-4");
 linefeedDiv(inDivs, 3);//перенос строки
+inDivs = new Array();
+inDivs=getDivsListWithAlikeClassName("thumbnail");
 divsMatrix=getDivsMatrixFromRowElementCount(inDivs,3);
 
 var maxHeight=0;
 
 for(i=0;i<divsMatrix.length;i++){
-  
+
 	for(j=0;j<divsMatrix[i].length;j++){
-  	_img=divsMatrix[i][j].childNodes[1].childNodes[1]; //get [img] 
-    classCaption=divsMatrix[i][j].childNodes[1].childNodes[3]; //get [div] (class="caption")
-    commonHeight = _img.offsetHeight+classCaption.offsetHeight; //Получаем сумму высот изображения и описания
+    commonHeight = divsMatrix[i][j].offsetHeight; //Получаем сумму высот изображения и описания
     if(maxHeight<commonHeight)
     	maxHeight=commonHeight; //Находим максимальную высоту
   }
 
   for(j=0;j<divsMatrix[i].length;j++){
-  	_img=divsMatrix[i][j].childNodes[1].childNodes[1]; //get [img] 
-    classCaption=divsMatrix[i][j].childNodes[1].childNodes[3]; //get [div] (class="caption")
-  	bottomAdder=maxHeight-(_img.offsetHeight+classCaption.offsetHeight); //Вычисляем величину добавки (adder) для каждого товара
+      classCaption=divsMatrix[i][j].childNodes[3]; //get [div] (class="caption")
+  	bottomAdder=maxHeight-divsMatrix[i][j].offsetHeight; //Вычисляем величину добавки (adder) для каждого товара
     classCaption.style.marginBottom = bottomAdder+"px"; // Регулируем высоту товаров
   }
   
   maxHeight=0;
 }
 
-////////////////////// Functions //////////////////////
+////////////////////////////////////////////////////////////
 function linefeedDiv(divsList, divsInRow) {
 	divsList[parseInt(divsInRow)].style.clear = "both";
 };
