@@ -1,6 +1,6 @@
 var inDivs = new Array();
 inDivs=getDivsListWithAlikeClassName("col-xs-4");
-linefeedDiv(inDivs, 3);//перенос строки
+linefeedDiv(inDivs, 3);//РїРµСЂРµРЅРѕСЃ СЃС‚СЂРѕРєРё
 inDivs = new Array();
 inDivs=getDivsListWithAlikeClassName("thumbnail");
 divsMatrix=getDivsMatrixFromRowElementCount(inDivs,3);
@@ -10,15 +10,15 @@ var maxHeight=0;
 for(i=0;i<divsMatrix.length;i++){
 
 	for(j=0;j<divsMatrix[i].length;j++){
-    commonHeight = divsMatrix[i][j].offsetHeight; //Получаем сумму высот изображения и описания
+    commonHeight = divsMatrix[i][j].offsetHeight; //РџРѕР»СѓС‡Р°РµРј СЃСѓРјРјСѓ РІС‹СЃРѕС‚ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ Рё РѕРїРёСЃР°РЅРёСЏ
     if(maxHeight<commonHeight)
-    	maxHeight=commonHeight; //Находим максимальную высоту
+    	maxHeight=commonHeight; //РќР°С…РѕРґРёРј РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ РІС‹СЃРѕС‚Сѓ
   }
 
   for(j=0;j<divsMatrix[i].length;j++){
       classCaption=divsMatrix[i][j].childNodes[3]; //get [div] (class="caption")
-  	bottomAdder=maxHeight-divsMatrix[i][j].offsetHeight; //Вычисляем величину добавки (adder) для каждого товара
-    classCaption.style.marginBottom = bottomAdder+"px"; // Регулируем высоту товаров
+  	bottomAdder=maxHeight-divsMatrix[i][j].offsetHeight; //Р’С‹С‡РёСЃР»СЏРµРј РІРµР»РёС‡РёРЅСѓ РґРѕР±Р°РІРєРё (adder) РґР»СЏ РєР°Р¶РґРѕРіРѕ С‚РѕРІР°СЂР°
+    classCaption.style.marginBottom = bottomAdder+"px"; // Р РµРіСѓР»РёСЂСѓРµРј РІС‹СЃРѕС‚Сѓ С‚РѕРІР°СЂРѕРІ
   }
   
   maxHeight=0;
